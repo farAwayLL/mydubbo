@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8882 #服务的端口号
+
+dubbo:
+  application:
+    name: provider-user #一般使用模块名
+    qos-enable: false #Quality of Service，服务质量。建议关闭，否则在启动时会报端口占用，虽然能正常跑起来，但是不爽
+
+  protocol:
+    name: dubbo #协议(固定)
+    port: 20882  #端口 通过该端口提供服务 消费者被动接受
+
+  ###以下为服务提供者常用配置###
+  provider:
+    timeout: 1000
+    #超时时间！dubbo的默认超时时间是1000毫秒,且当服务的提供者和消费者都配置timeout时,消费者优先级别高,
+    #以消费者超时时间为准。但是,一般情况下,消费者不配置超时时间,因为响应时间是服务端决定的，应该由服务提供者来配置。
+
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_springboot_teach_02?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181 #注册到zk的地址
+    #zookeeper集群配置方法一
+    #protocol: zookeeper
+    #address: 192.168.62.5:2181,192.168.62.4:2181,192.168.62.3:2181
+    #zookeeper集群配置方法二
+    #address: zookeeper://192.168.62.3:2181?backup192.168.62.4:2181,192.168.62.5:2181
+
+  #monitor:
+    #protocol: registry #配置监控中心，表示从注册中心发现监控中心地址，表示从注册中心发现监控中心地址，不启动监控中心则从注册中心找不到它的地址，就会报错(但不影响使用)，一般不配置
