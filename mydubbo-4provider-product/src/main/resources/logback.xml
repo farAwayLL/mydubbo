@@ -32,8 +32,8 @@
         <appender-ref ref="console"/>
     </root>
     <!-- 保存日志级别 debug表示保存debug和trace -->
-    <!-- name = mybatis的mapper接口路径 -->
-    <logger name="com.lang.model" level="DEBUG">
+    <!-- name = com.lang可以包含com.lang.provider和com.lang.model：provider-product全栈日志以及sql日志 -->
+    <logger name="com.lang" level="DEBUG">
         <appender-ref ref="rollingFile"/>
     </logger>
 </configuration>
