@@ -1,10 +1,6 @@
 package com.lang.inter.product;
 
-import com.lang.model.dto.ProductType;
 import com.lang.model.entity.Product;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author faraway
@@ -13,7 +9,5 @@ import java.util.Map;
 public interface ProductService {
 
     Product getProductById(String id);
-
-    List<ProductType> getDataStrByHttpClient(Map paramMap);
 
 }

@@ -3,24 +3,17 @@ package com.lang.api.controller.product;
 import cn.hutool.core.util.NumberUtil;
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.google.common.collect.Maps;
-import com.lang.api.service.UploadService;
 import com.lang.common.enums.StatusEnum;
 import com.lang.common.response.R;
-import com.lang.inter.product.ProductScheduler;
 import com.lang.inter.product.ProductService;
-import com.lang.model.dto.ProductType;
 import com.lang.model.entity.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author faraway
@@ -39,13 +32,6 @@ public class ProductController {
     @Reference
     private ProductService productService;
 
-    //本地服务
-    @Autowired
-    private UploadService uploadService;
-
-    @Reference
-    private ProductScheduler productScheduler;
-
     @GetMapping("/getProductById/{id}")
     @ResponseBody
     public R getProductById(@PathVariable String id) {
@@ -62,64 +48,6 @@ public class ProductController {
             }
         } catch (Exception e) {
             logger.error("获取产品详情异常！", e);
-            return R.error(StatusEnum.FAIL);
-        }
-    }
-
-    /**
-     * HttpClient测试
-     */
-    @GetMapping("/test/httpClient")
-    @ResponseBody
-    public R httpClient() {
-        try {
-            Map paramMap = Maps.newHashMap();
-            paramMap.put("productType", "PXZCGL16");
-            List<ProductType> productTypeList = productService.getDataStrByHttpClient(paramMap);
-            if (productTypeList == null) {
-                return R.error(StatusEnum.TIMEOUT);
-            }
-            return R.ok(productTypeList);
-        } catch (Exception e) {
-            logger.error("HttpClient测试失败！", e);
-            return R.error(StatusEnum.FAIL);
-        }
-    }
-
-    /**
-     * 一个可以点击执行还能定时执行的任务
-     *
-     * @return
-     */
-    @GetMapping("scheduler/start")
-    @ResponseBody
-    public R start() {
-        try {
-            productScheduler.updProductStatus();
-            return R.ok();
-        } catch (Exception e) {
-            logger.error("执行定时任务失败！", e);
-            return R.error(StatusEnum.FAIL);
-        }
-    }
-
-    /**
-     * 上传产品图片到七牛云
-     */
-    @PostMapping("/uploadProductImg")
-    @ResponseBody
-    public R uploadImg(MultipartHttpServletRequest request) {
-        try {
-            MultipartFile imageFile = request.getFile("image");
-            if (imageFile == null) {
-                return R.error(StatusEnum.NULL);
-            }
-            String fileName = imageFile.getOriginalFilename();
-            String type = "product";
-            uploadService.uploadProductImg(fileName, type, imageFile);
-            return R.ok();
-        } catch (Exception e) {
-            logger.error("图片上传失败！", e);
             return R.error(StatusEnum.FAIL);
         }
     }
