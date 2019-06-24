@@ -1,12 +1,12 @@
 package com.lang.api.controller.user;
 
 import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.lang.common.enums.StatusEnum;
 import com.lang.common.response.R;
 import com.lang.inter.user.UserService;
 import com.lang.model.entity.User;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -33,7 +33,7 @@ public class UserController {
     public R getUserById(@PathVariable String id) {
         try {
             // 参数校验
-            if (StringUtils.isBlank(id) || !NumberUtil.isNumber(id)) {
+            if (StrUtil.isBlank(id) || !NumberUtil.isNumber(id)) {
                 return R.error(StatusEnum.INVALID_PARAM);
             } else {
                 User user = userService.getUserById(id);

@@ -1,7 +1,7 @@
 package com.lang.api.controller.product;
 
 import cn.hutool.core.util.NumberUtil;
-import com.alibaba.dubbo.common.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.lang.common.enums.StatusEnum;
 import com.lang.common.response.R;
@@ -37,7 +37,7 @@ public class ProductController {
     public R getProductById(@PathVariable String id) {
         try {
             //参数校验
-            if (StringUtils.isBlank(id) || !NumberUtil.isNumber(id)) {
+            if (StrUtil.isBlank(id) || !NumberUtil.isNumber(id)) {
                 return R.error(StatusEnum.INVALID_PARAM);
             } else {
                 Product product = productService.getProductById(id);
