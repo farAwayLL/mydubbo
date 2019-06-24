@@ -2,11 +2,11 @@ package com.lang.api.controller.product;
 
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.lang.common.enums.StatusEnum;
 import com.lang.common.response.R;
 import com.lang.inter.product.ProductService;
 import com.lang.model.entity.Product;
+import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

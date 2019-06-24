@@ -1,10 +1,10 @@
 package com.lang.user.service;
 
 import cn.hutool.json.JSONUtil;
-import com.alibaba.dubbo.config.annotation.Service;
 import com.lang.inter.user.UserService;
 import com.lang.model.entity.User;
 import com.lang.model.mapper.UserMapper;
+import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,8 +14,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -28,8 +26,6 @@ import java.util.Map;
  * Created by steadyjack on 2019/1/21.
  */
 public class HttpUtil {
-
-    private static final Logger log = LoggerFactory.getLogger(HttpUtil.class);
 
     private static final String ENCODING = "UTF-8";
 
@@ -53,12 +49,12 @@ public class HttpUtil {
                 responseText = EntityUtils.toString(entity);
             }
         } catch (Exception e) {
-            log.error("http request failed", e);
+            e.printStackTrace();
         } finally {
             try {
                 response.close();
             } catch (Exception e) {
-                log.error("", e);
+                e.printStackTrace();
             }
         }
         return responseText;
@@ -82,12 +78,12 @@ public class HttpUtil {
                 responseText = EntityUtils.toString(entity);
             }
         } catch (Exception e) {
-            log.error("http request failed", e);
+            e.printStackTrace();
         } finally {
             try {
                 response.close();
             } catch (Exception e) {
-                log.error("", e);
+                e.printStackTrace();
             }
         }
         return responseText;

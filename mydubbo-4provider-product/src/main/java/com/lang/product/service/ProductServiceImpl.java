@@ -1,10 +1,10 @@
 package com.lang.product.service;
 
 import cn.hutool.json.JSONUtil;
-import com.alibaba.dubbo.config.annotation.Service;
 import com.lang.inter.product.ProductService;
 import com.lang.model.entity.Product;
 import com.lang.model.mapper.ProductMapper;
+import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
