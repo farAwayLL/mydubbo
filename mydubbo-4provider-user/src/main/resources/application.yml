@@ -9,7 +9,7 @@ dubbo:
   application:
     name: provider-user #一般使用模块名
     qos-enable: false #Quality of Service，服务质量。建议关闭，否则在启动时会报端口占用，虽然能正常跑起来，但是不爽
-
+    #详情见：https://qinsg.mowits.com/2018/10/29/qos/
   protocol:
     name: dubbo #协议(固定)
     port: 20882  #端口 通过该端口提供服务 消费者被动接受

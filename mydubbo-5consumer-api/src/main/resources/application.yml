@@ -11,7 +11,7 @@ dubbo:
   application:
     name: consumer-api #一般使用模块名
     qos-enable: false #Quality of Service，服务质量。建议关闭，否则在启动时会报端口占用，虽然能正常跑起来，但是不爽
-
+    #详情见：https://qinsg.mowits.com/2018/10/29/qos/
   ###以下为服务消费者常用配置###
   consumer:
     retries: 2 #重试次数！dubbo的默认重试次数也是2次，当服务加载延迟或者没响应，会自动再去重试2次，0表示不重试，这个在消费者设置。
@@ -32,9 +32,3 @@ dubbo:
 
     #monitor:
     #protocol: registry #配置监控中心，表示从注册中心发现监控中心地址，表示从注册中心发现监控中心地址，不启动监控中心则从注册中心找不到它的地址，就会报错(但不影响使用)，一般不配置
-
-qiniu:
-  ak: skYPH8-90zfABnS4xYZasotSZuw391D5O-bDTsXx
-  sk: kgHbo9aRocrRcoDEeDHxW5BijIQKvcB5X69zyK7U
-  domain: image.langflying.com/
-  bucket: faraway-image
