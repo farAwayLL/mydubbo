@@ -11,7 +11,7 @@
     <modules>
         <module>mydubbo-1common</module>
         <module>mydubbo-2model</module>
-        <module>mydubbo-3inter</module>
+        <module>mydubbo-3interface</module>
         <module>mydubbo-4provider-user</module>
         <module>mydubbo-4provider-product</module>
         <module>mydubbo-5consumer-api</module>

@@ -12,6 +12,7 @@
     <artifactId>mydubbo-2model</artifactId>
 
     <dependencies>
+        <!-- 本地依赖公共包 -->
         <dependency>
             <groupId>com.lang</groupId>
             <artifactId>mydubbo-1common</artifactId>

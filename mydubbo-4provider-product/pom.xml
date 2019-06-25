@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lang</groupId>
-            <artifactId>mydubbo-3inter</artifactId>
+            <artifactId>mydubbo-3interface</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

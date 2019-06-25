@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- * <p>
- * https://www.renren.io
- * <p>
- * 版权所有，侵权必究！
- */
-
 package com.lang.common.response;
 
 import com.lang.common.enums.StatusEnum;
@@ -39,6 +31,7 @@ public class R extends LinkedHashMap<String, Object> {
         return new R();
     }
 
+    @SuppressWarnings("unchecked")
     public static R ok(Object data) {
         R r = new R();
         Map dataMap = new HashMap();
