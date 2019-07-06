@@ -4,9 +4,6 @@ spring:
   jackson:
     date-format: yyy-MM-dd HH:mm #全局时间格式化处理 HH:mm表示24小时制，hh:mm表示12小时制
 
-server:
-  port: 8889 #接口服务的端口号
-
 dubbo:
   application:
     name: consumer-api #一般使用模块名
@@ -18,8 +15,29 @@ dubbo:
     check: false #启动时检查所有的服务者是否存在！
     #true表示检查，如果某个服务不存在，则报错，但可以消费者可以正常启动并访问其它正常的服务。默认为true。设置为false时,方便调试的时候不用启动全部提供者。
 ---
+server:
+  port: 8889 #接口服务的端口号
+
 spring:
   profiles: dev
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181 #注册到zk的地址
+    #zookeeper集群配置方法一
+    #protocol: zookeeper
+    #address: 192.168.62.5:2181,192.168.62.4:2181,192.168.62.3:2181
+    #zookeeper集群配置方法二
+    #address: zookeeper://192.168.62.3:2181?backup192.168.62.4:2181,192.168.62.5:2181
+
+    #monitor:
+    #protocol: registry #配置监控中心，表示从注册中心发现监控中心地址，表示从注册中心发现监控中心地址，不启动监控中心则从注册中心找不到它的地址，就会报错(但不影响使用)，一般不配置
+---
+server:
+  port: 8899 #接口服务的端口号
+
+spring:
+  profiles: test
 
 dubbo:
   registry:

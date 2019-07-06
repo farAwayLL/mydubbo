@@ -1,8 +1,6 @@
 spring:
   profiles:
     active: dev
-server:
-  port: 8881 #服务的端口号
 
 dubbo:
   application:
@@ -23,8 +21,34 @@ dubbo:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 ---
+server:
+  port: 8881 #服务的端口号
+
 spring:
   profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_springboot_teach_02?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181 #注册到zk的地址
+    #zookeeper集群配置方法一
+    #protocol: zookeeper
+    #address: 192.168.62.5:2181,192.168.62.4:2181,192.168.62.3:2181
+    #zookeeper集群配置方法二
+    #address: zookeeper://192.168.62.3:2181?backup192.168.62.4:2181,192.168.62.5:2181
+
+    #monitor:
+    #protocol: registry #配置监控中心，表示从注册中心发现监控中心地址，不启动监控中心则从注册中心找不到它的地址，就会报错(但不影响使用)，一般不配置
+
+---
+server:
+  port: 8891 #服务的端口号
+
+spring:
+  profiles: test
   datasource:
     url: jdbc:mysql://localhost:3306/db_springboot_teach_02?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
     username: root

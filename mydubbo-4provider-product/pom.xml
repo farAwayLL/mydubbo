@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>mydubbo-4provider-product</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -25,9 +26,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                     <mainClass>com.lang.product.ProductApplication</mainClass>
-                    <executable>true</executable>
                 </configuration>
                 <executions>
                     <execution>

@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>mydubbo-2model</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- 本地依赖公共包 -->

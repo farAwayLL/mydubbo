@@ -18,21 +18,17 @@
         <module>dubbo-admin</module>
     </modules>
 
-    <!-- 添加全局编码格式和java版本 -->
     <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-        <hutool.version>4.5.9</hutool.version>
+        <hutool.version>4.5.16</hutool.version>
         <commons-lang3.version>3.9</commons-lang3.version>
-        <httpclient.version>4.5.8</httpclient.version>
+        <httpclient.version>4.5.9</httpclient.version>
         <lombok.version>1.18.8</lombok.version>
         <dubbo.version>2.7.1</dubbo.version>
         <mybatis.version>2.0.1</mybatis.version>
         <mysql.version>8.0.16</mysql.version>
         <pagehelper.verison>5.1.10</pagehelper.verison>
-        <qiniu.version>7.2.21</qiniu.version><!--表示每次去获取最新版本-->
+        <qiniu.version>7.2.21</qiniu.version>
     </properties>
 
     <parent>
