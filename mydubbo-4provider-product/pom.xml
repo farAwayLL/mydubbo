@@ -28,13 +28,6 @@
                 <configuration>
                     <mainClass>com.lang.product.ProductApplication</mainClass>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
