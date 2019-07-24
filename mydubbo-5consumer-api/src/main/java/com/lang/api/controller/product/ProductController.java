@@ -10,10 +10,7 @@ import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author faraway
@@ -48,6 +45,23 @@ public class ProductController {
             }
         } catch (Exception e) {
             logger.error("获取产品详情异常！", e);
+            return R.error(StatusEnum.FAIL);
+        }
+    }
+
+    /**
+     * 添加产品并返回主键
+     * @param product
+     * @return
+     */
+    @PostMapping("/addProduct")
+    @ResponseBody
+    public R addProduct(@RequestBody Product product) {
+        try {
+            Integer primaryId = productService.addProduct(product);
+            return R.ok(primaryId);
+        } catch (Exception e) {
+            logger.error("添加产品并返回主键失败！",e);
             return R.error(StatusEnum.FAIL);
         }
     }

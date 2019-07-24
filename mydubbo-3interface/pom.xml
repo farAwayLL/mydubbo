@@ -69,7 +69,7 @@
         <!-- pageHelper -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.verison}</version>
         </dependency>
     </dependencies>

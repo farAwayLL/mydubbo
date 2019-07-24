@@ -37,7 +37,7 @@
       #{purchaseDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lang.model.entity.Product">
+  <insert id="insertSelective" parameterType="com.lang.model.entity.Product" keyProperty="id" useGeneratedKeys="true">
     insert into product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

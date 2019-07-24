@@ -27,7 +27,7 @@
         <dubbo.version>2.7.1</dubbo.version>
         <mybatis.version>2.0.1</mybatis.version>
         <mysql.version>8.0.16</mysql.version>
-        <pagehelper.verison>5.1.10</pagehelper.verison>
+        <pagehelper.verison>1.2.12</pagehelper.verison>
         <qiniu.version>7.2.21</qiniu.version>
     </properties>
 

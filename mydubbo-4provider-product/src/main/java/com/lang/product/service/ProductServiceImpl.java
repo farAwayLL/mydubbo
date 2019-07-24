@@ -29,4 +29,16 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
+    /**
+     * 添加产品并返回主键
+     * @param product
+     * @return
+     */
+    @Override
+    public Integer addProduct(Product product) {
+        productMapper.insertSelective(product);
+        Integer primaryId = product.getId();
+        return primaryId;
+    }
+
 }

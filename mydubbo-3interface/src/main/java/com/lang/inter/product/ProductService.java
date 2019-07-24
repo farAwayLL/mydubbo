@@ -10,4 +10,5 @@ public interface ProductService {
 
     Product getProductById(String id);
 
+    Integer addProduct(Product product);
 }
