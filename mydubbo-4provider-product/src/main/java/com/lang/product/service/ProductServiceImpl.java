@@ -43,5 +43,4 @@ public class ProductServiceImpl implements ProductService {
         Integer primaryId = product.getId();
         return primaryId;
     }
-
 }
