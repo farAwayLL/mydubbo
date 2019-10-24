@@ -18,6 +18,8 @@ public class ProductServiceImpl implements ProductService {
 
     private static Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
+    private static int a = 1;
+
     @Autowired
     private ProductMapper productMapper;
 
@@ -31,6 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 添加产品并返回主键
+     *
      * @param product
      * @return
      */
