@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
     private static Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
-    private static int a = 2;
+    private static int a = 3;
 
     @Autowired
     private ProductMapper productMapper;
